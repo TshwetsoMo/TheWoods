@@ -35,7 +35,7 @@ include 'config.php';
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Template Stylesheet -->
+    <!-- Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
 </head>
 
@@ -55,7 +55,7 @@ include 'config.php';
             <div class="col-lg-7 px-5 text-start">
                 <div class="h-100 d-inline-flex align-items-center py-3 me-4">
                     <small class="fa fa-map-marker-alt text-primary me-2"></small>
-                    <small>456 Carpenter Lane, Springfield, USA</small>
+                    <small>456 Carpenter Lane, Springfield, RSA</small>
                 </div>
                 <div class="h-100 d-inline-flex align-items-center py-3">
                     <small class="far fa-clock text-primary me-2"></small>
@@ -65,7 +65,7 @@ include 'config.php';
             <div class="col-lg-5 px-5 text-end">
                 <div class="h-100 d-inline-flex align-items-center py-3 me-4">
                     <small class="fa fa-phone-alt text-primary me-2"></small>
-                    <small>+1 (555) 123-4567</small>
+                    <small>083 585 8890</small>
                 </div>
                 <div class="h-100 d-inline-flex align-items-center">
                     <a class="btn btn-sm-square bg-white text-primary me-1" href="https://facebook.com/YourHandymanService"><i class="fab fa-facebook-f"></i></a>
@@ -91,10 +91,10 @@ include 'config.php';
             <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="index.php" class="nav-item nav-link">Home</a>
                 <a href="about.php" class="nav-item nav-link">About</a>
-                <a href="services.php" class="nav-item nav-link">Services</a>
+                <a href="service.php" class="nav-item nav-link">Services</a>
                 <a href="contact.php" class="nav-item nav-link active">Contact</a>
             </div>
-            <a href="contact.html" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Book a Handyman<i class="fa fa-arrow-right ms-3"></i></a>
+            <a href="contact.php" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Book a Handyman<i class="fa fa-arrow-right ms-3"></i></a>
         </div>
     </nav>
     <!-- Navbar End -->
@@ -117,7 +117,7 @@ include 'config.php';
     <!-- Emergency Contact Start -->
     <div class="container-fluid bg-danger text-white py-3">
         <div class="container text-center">
-            <h4>For urgent repairs, call us immediately at <a href="tel:+15551234567" class="text-white">+1 (555) 123-4567</a></h4>
+            <h4>For urgent repairs, call us immediately at <a href="tel:083 585 8890" class="text-white">+1 (555) 123-4567</a></h4>
         </div>
     </div>
     <!-- Emergency Contact End -->
@@ -129,63 +129,67 @@ include 'config.php';
             </div>
             <form action="process_booking.php" method="POST">
                 <div class="row g-3">
-                    <!-- Name -->
+                    <!-- Full Name -->
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
-                            <label for="name">Your Name</label>
+                            <input type="text" name="FullName" class="form-control" id="FullName" placeholder="Your Full Name" required>
+                            <label for="FullName">Your Full Name</label>
                         </div>
                     </div>
                     <!-- Email -->
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input type="email" name="email" class="form-control" id="email" placeholder="Your Email" required>
-                            <label for="email">Your Email</label>
+                            <input type="email" name="Email" class="form-control" id="Email" placeholder="Your Email" required>
+                            <label for="Email">Your Email</label>
                         </div>
                     </div>
                     <!-- Phone -->
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input type="tel" name="phone" class="form-control" id="phone" placeholder="Your Phone" required>
-                            <label for="phone">Your Phone</label>
+                            <input type="tel" name="Phone" class="form-control" id="Phone" placeholder="Your Phone" required>
+                            <label for="Phone">Your Phone</label>
                         </div>
                     </div>
                     <!-- Address -->
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input type="text" name="address" class="form-control" id="address" placeholder="Your Address" required>
-                            <label for="address">Your Address</label>
+                            <input type="text" name="Address" class="form-control" id="Address" placeholder="Your Address" required>
+                            <label for="Address">Your Address</label>
                         </div>
                     </div>
                     <!-- Service Needed -->
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <select class="form-select" name="service" id="service" required>
+                            <select class="form-select" name="ServiceID" id="ServiceID" required>
                                 <option value="" disabled selected>Select Service Needed</option>
                                 <?php
                                 // Fetch services from the database
-                                $service_query = "SELECT ServiceID, ServiceName FROM Services";
+                                $service_query = "SELECT ServiceID, ServiceName FROM services";
                                 $service_result = $conn->query($service_query);
-                                while ($service = $service_result->fetch_assoc()) {
-                                    echo '<option value="' . $service['ServiceID'] . '">' . $service['ServiceName'] . '</option>';
+                                if ($service_result->num_rows > 0) {
+                                    while ($service = $service_result->fetch_assoc()) {
+                                        echo '<option value="' . $service['ServiceID'] . '">' . $service['ServiceName'] . '</option>';
+                                    }
+                                } else {
+                                    echo '<option value="">No services available</option>';
                                 }
                                 ?>
                             </select>
-                            <label for="service">Service Needed</label>
+                            <label for="ServiceID">Service Needed</label>
                         </div>
                     </div>
                     <!-- Preferred Date & Time -->
                     <div class="col-md-6">
                         <div class="form-floating">
-                            <input type="datetime-local" name="preferred_datetime" class="form-control" id="preferred_datetime" placeholder="Preferred Date & Time" required>
-                            <label for="preferred_datetime">Preferred Date & Time</label>
+                            <input type="datetime-local" name="PreferredDateTime" class="form-control" id="PreferredDateTime" placeholder="Preferred Date & Time" required>
+                            <label for="PreferredDateTime">Preferred Date & Time</label>
                         </div>
                     </div>
                     <!-- Message -->
                     <div class="col-12">
                         <div class="form-floating">
-                            <textarea class="form-control" name="message" placeholder="Leave a message here" id="message" style="height: 100px"></textarea>
-                            <label for="message">Additional Information</label>
+                            <textarea class="form-control" name="Message" placeholder="Leave a message here" id="Message" style="height: 100px"></textarea>
+                            <label for="Message">Additional Information</label>
                         </div>
                     </div>
                     <!-- Submit Button -->
@@ -197,6 +201,7 @@ include 'config.php';
         </div>
     </div>
     <!-- Booking Form End -->
+
     <!-- Contact Start -->
     <div class="container-fluid bg-light overflow-hidden px-lg-0" style="margin: 6rem 0;">
         <div class="container contact px-lg-0">
@@ -208,30 +213,42 @@ include 'config.php';
                         </div>
                         <form action="process_contact.php" method="POST">
                             <div class="row g-3">
+                                <!-- Full Name -->
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <input type="text" name="contact_name" class="form-control" id="contact_name" placeholder="Your Name" required>
-                                        <label for="contact_name">Your Name</label>
+                                        <input type="text" name="FullName" class="form-control" id="ContactFullName" placeholder="Your Name" required>
+                                        <label for="ContactFullName">Your Name</label>
                                     </div>
                                 </div>
+                                <!-- Email -->
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <input type="email" name="contact_email" class="form-control" id="contact_email" placeholder="Your Email" required>
-                                        <label for="contact_email">Your Email</label>
+                                        <input type="email" name="Email" class="form-control" id="ContactEmail" placeholder="Your Email" required>
+                                        <label for="ContactEmail">Your Email</label>
                                     </div>
                                 </div>
+                                <!-- Phone (Optional) -->
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="tel" name="Phone" class="form-control" id="ContactPhone" placeholder="Your Phone">
+                                        <label for="ContactPhone">Your Phone (Optional)</label>
+                                    </div>
+                                </div>
+                                <!-- Subject -->
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input type="text" name="Subject" class="form-control" id="Subject" placeholder="Subject">
+                                        <label for="Subject">Subject</label>
+                                    </div>
+                                </div>
+                                <!-- Message -->
                                 <div class="col-12">
                                     <div class="form-floating">
-                                        <input type="text" name="subject" class="form-control" id="subject" placeholder="Subject" required>
-                                        <label for="subject">Subject</label>
+                                        <textarea class="form-control" name="Message" placeholder="Leave a message here" id="ContactMessage" style="height: 100px" required></textarea>
+                                        <label for="ContactMessage">Message</label>
                                     </div>
                                 </div>
-                                <div class="col-12">
-                                    <div class="form-floating">
-                                        <textarea class="form-control" name="contact_message" placeholder="Leave a message here" id="contact_message" style="height: 100px" required></textarea>
-                                        <label for="contact_message">Message</label>
-                                    </div>
-                                </div>
+                                <!-- Submit Button -->
                                 <div class="col-12">
                                     <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
                                 </div>
@@ -239,7 +256,13 @@ include 'config.php';
                         </form>
                     </div>
                 </div>
-                <!-- (Your existing map code) -->
+                <!-- Map or Image -->
+                <div class="col-lg-6 d-none d-lg-block">
+                    <!-- You can include a map or an image here -->
+                    <div class="position-relative h-100">
+                        <img class="position-absolute img-fluid w-100 h-100" src="img/contact.jpg" style="object-fit: cover;" alt="Contact Us">
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -340,10 +363,6 @@ include 'config.php';
                 <div class="row">
                     <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
                         &copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved.
-                    </div>
-                    <div class="col-md-6 text-center text-md-end">
-                        <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                        Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
                     </div>
                 </div>
             </div>

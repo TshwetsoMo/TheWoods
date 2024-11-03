@@ -6,8 +6,9 @@
     <meta charset="utf-8">
     <title>Woody - Carpenter Website Template</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
+    <meta content="Handyman Services, Contact Us, Booking, Plumbing, Electrical, Maintenance" name="keywords">
+    <meta content="Contact us to book a service or request a quote. We offer plumbing, electrical, home equipment, and general maintenance services." name="description">
+
 
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
@@ -49,7 +50,7 @@
             <div class="col-lg-7 px-5 text-start">
                 <div class="h-100 d-inline-flex align-items-center py-3 me-4">
                     <small class="fa fa-map-marker-alt text-primary me-2"></small>
-                    <small>123 Street, New York, USA</small>
+                    <small>123 Street, Pretoria, RSA</small>
                 </div>
                 <div class="h-100 d-inline-flex align-items-center py-3">
                     <small class="far fa-clock text-primary me-2"></small>
@@ -107,8 +108,8 @@
                                 <h5 class="text-white text-uppercase mb-3 animated slideInDown">Welcome To The Woods</h5>
                                 <h1 class="display-3 text-white animated slideInDown mb-4">Reliable Handyman Services for All Your Home Needs</h1>
                                 <p class="fs-5 fw-medium text-white mb-4 pb-2">From custom furniture to electrical repairs, plumbing and general maintenance, we’ve got you covered.</p>
-                                <a href="services.html" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Our Services</a>
-                                <a href="contact.html" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Book Now</a>
+                                <a href="services.php" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Our Services</a>
+                                <a href="contact.php" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Book Now</a>
                             </div>
                         </div>
                     </div>
@@ -122,8 +123,8 @@
                             <div class="col-12 col-lg-8 text-center">
                                 <h1 class="display-3 text-white animated slideInDown mb-4">Quality Craftsmanship & Materials</h1>
                                 <p class="fs-5 fw-medium text-white mb-4 pb-2">We use the finest materials to ensure durable and beautiful results.</p>
-                                <a href="about.html" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">About Us</a>
-                                <a href="contact.html" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Contact Us</a>
+                                <a href="about.php" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">About Us</a>
+                                <a href="contact.php" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Contact Us</a>
                             </div>
                         </div>
                     </div>
@@ -137,8 +138,8 @@
                             <div class="col-12 col-lg-8 text-center">
                                 <h1 class="display-3 text-white animated slideInDown mb-4">Enhance Your Space with Custom Carpentry</h1>
                                 <p class="fs-5 fw-medium text-white mb-4 pb-2">Personalized solutions for all your carpentry needs.</p>
-                                <a href="projects.html" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Our Projects</a>
-                                <a href="contact.html" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Get a Quote</a>
+                                <a href="project.php" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Our Projects</a>
+                                <a href="contact.php" class="btn btn-light py-md-3 px-md-5 animated slideInRight">Get a Quote</a>
                             </div>
                         </div>
                     </div>
@@ -187,7 +188,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="" class="btn btn-primary py-3 px-5">Explore More</a>
+                        <a href="about.php" class="btn btn-primary py-3 px-5">Explore More</a>
                     </div>
                 </div>
             </div>
@@ -212,7 +213,7 @@
                         <div class="p-4 text-center border border-5 border-light border-top-0">
                             <h4 class="mb-3">General Carpentry</h4>
                             <p>Providing a wide range of carpentry services including repairs, installations, and custom projects for your home or business.</p>
-                            <a class="fw-medium" href="general-carpentry.html">Read More<i class="fa fa-arrow-right ms-2"></i></a>
+                            <a class="fw-medium" href="service.php">Read More<i class="fa fa-arrow-right ms-2"></i></a>
                         </div>
                     </div>
                 </div>
@@ -225,7 +226,7 @@
                         <div class="p-4 text-center border border-5 border-light border-top-0">
                             <h4 class="mb-3">Furniture Manufacturing</h4>
                             <p>Crafting high-quality, custom-made furniture pieces that suit your style and functional needs.</p>
-                            <a class="fw-medium" href="furniture-manufacturing.html">Read More<i class="fa fa-arrow-right ms-2"></i></a>
+                            <a class="fw-medium" href="service.php">Read More<i class="fa fa-arrow-right ms-2"></i></a>
                         </div>
                     </div>
                 </div>
@@ -238,7 +239,7 @@
                         <div class="p-4 text-center border border-5 border-light border-top-0">
                             <h4 class="mb-3">Furniture Remodeling</h4>
                             <p>Renovating and restoring existing furniture to give it a new look and extend its lifespan.</p>
-                            <a class="fw-medium" href="furniture-remodeling.html">Read More<i class="fa fa-arrow-right ms-2"></i></a>
+                            <a class="fw-medium" href="service.php">Read More<i class="fa fa-arrow-right ms-2"></i></a>
                         </div>
                     </div>
                 </div>
@@ -251,7 +252,7 @@
                         <div class="p-4 text-center border border-5 border-light border-top-0">
                             <h4 class="mb-3">Wooden Flooring</h4>
                             <p>Installation, sanding, and finishing of hardwood floors to enhance the beauty of your space.</p>
-                            <a class="fw-medium" href="wooden-flooring.html">Read More<i class="fa fa-arrow-right ms-2"></i></a>
+                            <a class="fw-medium" href="service.php">Read More<i class="fa fa-arrow-right ms-2"></i></a>
                         </div>
                     </div>
                 </div>
@@ -264,7 +265,7 @@
                         <div class="p-4 text-center border border-5 border-light border-top-0">
                             <h4 class="mb-3">Wooden Furniture</h4>
                             <p>Offering a selection of handcrafted wooden furniture pieces for your home or office.</p>
-                            <a class="fw-medium" href="wooden-furniture.html">Read More<i class="fa fa-arrow-right ms-2"></i></a>
+                            <a class="fw-medium" href="service.php">Read More<i class="fa fa-arrow-right ms-2"></i></a>
                         </div>
                     </div>
                 </div>
@@ -277,7 +278,7 @@
                         <div class="p-4 text-center border border-5 border-light border-top-0">
                             <h4 class="mb-3">Custom Work</h4>
                             <p>Providing bespoke carpentry solutions tailored to your specific design and functional requirements.</p>
-                            <a class="fw-medium" href="custom-work.html">Read More<i class="fa fa-arrow-right ms-2"></i></a>
+                            <a class="fw-medium" href="service.php">Read More<i class="fa fa-arrow-right ms-2"></i></a>
                         </div>
                     </div>
                 </div>
@@ -360,7 +361,7 @@
         <div class="container text-center">
             <h1 class="text-black mb-4">Need Expert Carpentry Services?</h1>
             <p class="text-black mb-4">Our skilled carpenters are ready to help with your next project.</p>
-            <button><a href="contact.html" class="btn btn-light btn-lg">Book a Handyman</a></button>
+            <button><a href="contact.php" class="btn btn-light btn-lg">Book a Handyman</a></button>
         </div>
     </div>
     <!-- Call to Action End -->
@@ -523,10 +524,6 @@
                 <div class="row">
                     <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
                         &copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved.
-                    </div>
-                    <div class="col-md-6 text-center text-md-end">
-                        <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                        Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
                     </div>
                 </div>
             </div>

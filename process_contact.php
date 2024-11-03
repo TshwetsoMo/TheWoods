@@ -5,29 +5,43 @@ include 'config.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Collect and sanitize data
-    $name = mysqli_real_escape_string($conn, trim($_POST['contact_name']));
-    $email = mysqli_real_escape_string($conn, trim($_POST['contact_email']));
-    $subject = mysqli_real_escape_string($conn, trim($_POST['subject']));
-    $message = mysqli_real_escape_string($conn, trim($_POST['contact_message']));
+    $FullName = trim($_POST['FullName']);
+    $Email = trim($_POST['Email']);
+    $Phone = trim($_POST['Phone']);
+    $Subject = trim($_POST['Subject']);
+    $Message = trim($_POST['Message']);
 
     // Validate required fields
-    if (empty($name) || empty($email) || empty($subject) || empty($message)) {
+    if (empty($FullName) || empty($Email) || empty($Message)) {
         // Handle error
         echo "Please fill in all required fields.";
         exit;
     }
 
-    // You can store the message in the database or send an email
-    // For this example, we'll send an email to your support email
+    // Validate email format
+    if (!filter_var($Email, FILTER_VALIDATE_EMAIL)) {
+        echo "Invalid email format.";
+        exit;
+    }
 
-    $to = "info@yourhandymanservice.com"; // Replace with your email
-    $headers = "From: " . $email . "\r\n";
-    $full_message = "Name: $name\nEmail: $email\nSubject: $subject\nMessage:\n$message";
+    // Optional fields handling
+    $Phone = !empty($Phone) ? $Phone : NULL;
+    $Subject = !empty($Subject) ? $Subject : NULL;
 
-    if (mail($to, $subject, $full_message, $headers)) {
+    // Prepare and bind
+    $stmt = $conn->prepare("INSERT INTO contact_messages (FullName, Email, Phone, Subject, Message) VALUES (?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssss", $FullName, $Email, $Phone, $Subject, $Message);
+
+    if ($stmt->execute()) {
+        // Success message
         echo "<script>alert('Your message has been sent successfully.'); window.location.href = 'contact.php';</script>";
     } else {
-        echo "There was an error sending your message. Please try again later.";
+        // Handle error
+        echo "Error inserting message: " . $stmt->error;
     }
+
+    // Close statement and connection
+    $stmt->close();
+    $conn->close();
 }
 ?>

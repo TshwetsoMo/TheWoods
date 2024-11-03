@@ -1,17 +1,11 @@
 <?php
 // config.php
 
-require_once __DIR__ . '/vendor/autoload.php';
-
-use Dotenv\Dotenv;
-
-$dotenv = Dotenv::createImmutable(__DIR__);
-$dotenv->load();
-
-$servername = $_ENV['DB_HOST'];
-$username = $_ENV['DB_USERNAME'];
-$password = $_ENV['DB_PASSWORD'];
-$dbname = $_ENV['DB_DATABASE'];
+// Directly set your database credentials
+$servername = "localhost";          // Replace with your database host
+$username = "tkmthel6n3h7_Mowetshot";        // Replace with your database username
+$password = "TKM0kg4t1h3";        // Replace with your database password
+$dbname = "tkmthel6n8h7_handyman_service_db";    // Replace with your database name
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
